@@ -9,7 +9,7 @@ app.post("/user", async (req, res) => {
   const { email, name } = req.body
 
   try {
-    const user = await prisma.user.create({
+    const user = await prisma.User.create({
       data: {
         email: email,
         name: name
