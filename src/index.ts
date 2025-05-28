@@ -5,11 +5,27 @@ const app = express()
 
 app.use(express.json())
 
-app.post("/user", (req, res) => {
-  const email = req.body.email
-  const id = req.body.id
+app.post("/user", async (req, res) => {
+  const { email, name } = req.body
 
+  try {
+    const user = await prisma.user.create({
+      data: {
+        email: email,
+        name: name
+      }
+    })
+  } catch(e) {
+    console.log(e)
+    res.send("unable to create user")
+  }
   
+})
+
+app.get("/user", (req, res) => {
+  res.json({
+    message: "user details fetched"
+  })
 })
 
 app.listen(3000)
