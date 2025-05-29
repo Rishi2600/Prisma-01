@@ -28,4 +28,12 @@ app.get("/user", (req, res) => {
   })
 })
 
+app.post("/posts", async (req, res) => {
+  try {
+    const posts = await prisma.Post.findMany({
+      where: {
+        id: email
+      },
+    })
+
 app.listen(3000)
