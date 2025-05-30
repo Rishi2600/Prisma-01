@@ -47,9 +47,7 @@ app.post("/posts", async (req, res) => {
         userId: userId
       })
       res.send(post)
-    } esle {
-    console.log("posts available")
-      
+    }
   } catch(e){
       console.log(e)
       res.json({
