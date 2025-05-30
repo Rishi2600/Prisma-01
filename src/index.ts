@@ -3,6 +3,8 @@ import express from "express"
 
 const app = express()
 
+const port = 3000
+
 app.use(express.json())
 
 app.post("/user", async (req, res) => {
@@ -55,4 +57,6 @@ app.post("/posts", async (req, res) => {
       })
   }
 
-app.listen(3000)
+app.listen(port, () => {
+  console.log(`server is listening on port: ${port})
+})
